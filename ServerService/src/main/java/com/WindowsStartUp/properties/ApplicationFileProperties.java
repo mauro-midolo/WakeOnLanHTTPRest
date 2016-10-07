@@ -30,6 +30,6 @@ public class ApplicationFileProperties implements ApplicationProperties {
 
     @Override
     public String getProperty(String name) {
-        return properties.getProperty("mac.address");
+        return properties.getProperty(name);
     }
 }

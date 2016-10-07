@@ -3,17 +3,19 @@ package com.WindowsStartUp;
 import com.WindowsStartUp.properties.ApplicationFileProperties;
 import com.WindowsStartUp.properties.ApplicationProperties;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class NetworkManager {
     private static NetworkManager instance;
 
+    private final ApplicationProperties applicationProperties;
+
     private NetworkManager() {
+        applicationProperties = ApplicationFileProperties.getInstance();
     }
 
     public static NetworkManager getInstance() {
@@ -23,23 +25,38 @@ public class NetworkManager {
         return instance;
     }
 
-    public void sendWakeOnLanPackage() {
+    public void sendWakeOnLanPackage(String password) {
+        if (passwordIsNotValid(password)) {
+            return;
+        }
         List<String> broadCastIps = getBroadCastIps();
         if (broadCastIps == null || broadCastIps.isEmpty()) {
             throw new RuntimeException("Impossible to find broadcast ip");
         }
-        String macAddress = null;
-        try {
-            macAddress = getMacAddressFromFileProperty();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        byte[] bytes = getBytesForMacAddress(macAddress);
+        byte[] bytes = getBytesForMacAddress(getMacAddressFromFileProperty());
         broadCastIps.forEach(broadcastIp -> sendingPacketFor(broadcastIp, bytes));
     }
 
-    private String getMacAddressFromFileProperty() throws IOException {
-        return ApplicationFileProperties.getInstance().getProperty("mac.address");
+    private boolean passwordIsNotValid(String password) {
+        String securityPasswordFromFileProperty = getSecurityPasswordFromFileProperty();
+        return !passwordStoredInFileIsNotSetOrEmpty(securityPasswordFromFileProperty)
+                && inputPasswordIsNullOrNotEqualsToStoredPassword(password, securityPasswordFromFileProperty);
+    }
+
+    private boolean inputPasswordIsNullOrNotEqualsToStoredPassword(String password, String securityPasswordFromFileProperty) {
+        return password == null || password.isEmpty() || !password.equals(securityPasswordFromFileProperty);
+    }
+
+    private boolean passwordStoredInFileIsNotSetOrEmpty(String securityPasswordFromFileProperty) {
+        return securityPasswordFromFileProperty == null || securityPasswordFromFileProperty.isEmpty();
+    }
+
+    private String getMacAddressFromFileProperty() {
+        return applicationProperties.getProperty("mac.address");
+    }
+
+    private String getSecurityPasswordFromFileProperty() {
+        return applicationProperties.getProperty("security.password");
     }
 
     private byte[] getBytesForMacAddress(String macAddress) throws IllegalArgumentException {

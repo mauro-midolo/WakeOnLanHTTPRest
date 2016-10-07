@@ -20,7 +20,7 @@ public class HttpRest {
     @Produces("application/json")
     public Response startComputer(@PathParam("password") String password) throws JsonProcessingException {
         String resultBody = generateSuccessResponse();
-        NetworkManager.getInstance().sendWakeOnLanPackage();
+        NetworkManager.getInstance().sendWakeOnLanPackage(password);
         return Response.status(200).entity(resultBody).build();
     }
 
