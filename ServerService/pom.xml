@@ -44,6 +44,16 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources/properties/</directory>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+                <targetPath>../</targetPath>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>

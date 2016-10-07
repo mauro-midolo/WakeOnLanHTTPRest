@@ -1,5 +1,10 @@
 package com.WindowsStartUp;
 
+import com.WindowsStartUp.properties.ApplicationFileProperties;
+import com.WindowsStartUp.properties.ApplicationProperties;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
@@ -23,9 +28,18 @@ public class NetworkManager {
         if (broadCastIps == null || broadCastIps.isEmpty()) {
             throw new RuntimeException("Impossible to find broadcast ip");
         }
-
-        byte[] bytes = getBytesForMacAddress("30-85-A9-9C-67-2C");
+        String macAddress = null;
+        try {
+            macAddress = getMacAddressFromFileProperty();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] bytes = getBytesForMacAddress(macAddress);
         broadCastIps.forEach(broadcastIp -> sendingPacketFor(broadcastIp, bytes));
+    }
+
+    private String getMacAddressFromFileProperty() throws IOException {
+        return ApplicationFileProperties.getInstance().getProperty("mac.address");
     }
 
     private byte[] getBytesForMacAddress(String macAddress) throws IllegalArgumentException {
