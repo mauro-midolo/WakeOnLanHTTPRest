@@ -25,7 +25,7 @@ public class NetworkManager {
         }
 
         byte[] bytes = getBytesForMacAddress("30-85-A9-9C-67-2C");
-        broadCastIps.forEach(broadcastIp -> SendingPacketFor(broadcastIp, bytes));
+        broadCastIps.forEach(broadcastIp -> sendingPacketFor(broadcastIp, bytes));
     }
 
     private byte[] getBytesForMacAddress(String macAddress) throws IllegalArgumentException {
@@ -40,7 +40,7 @@ public class NetworkManager {
         return bytes;
     }
 
-    private void SendingPacketFor(String ip, byte[] bytes) {
+    private void sendingPacketFor(String ip, byte[] bytes) {
         DatagramSocket socket = null;
         try {
             InetAddress address = InetAddress.getByName(ip);
