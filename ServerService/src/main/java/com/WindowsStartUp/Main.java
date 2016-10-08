@@ -1,5 +1,6 @@
 package com.WindowsStartUp;
 
+import com.WindowsStartUp.properties.ApplicationFileProperties;
 import com.WindowsStartUp.rest.HttpRest;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -10,7 +11,7 @@ public class Main {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
 
-        Server jettyServer = new Server(8080);
+        Server jettyServer = new Server(ApplicationFileProperties.getInstance().getIntProperty("http.port", 8080));
         jettyServer.setHandler(context);
 
         ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, "/*");
@@ -20,6 +21,7 @@ public class Main {
 
         try {
             jettyServer.start();
+            org.eclipse.jetty.http.HttpGenerator.setJettyVersion("WindowsStartUp");
             jettyServer.join();
         } finally {
             jettyServer.destroy();
