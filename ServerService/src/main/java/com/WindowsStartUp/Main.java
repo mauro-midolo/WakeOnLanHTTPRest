@@ -3,6 +3,7 @@ package com.WindowsStartUp;
 import com.WindowsStartUp.properties.ApplicationFileProperties;
 import com.WindowsStartUp.rest.HttpRest;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
@@ -13,6 +14,8 @@ public class Main {
 
         Server jettyServer = new Server(ApplicationFileProperties.getInstance().getIntProperty("http.port", 8080));
         jettyServer.setHandler(context);
+
+        addedError404Handler(context);
 
         ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, "/*");
         jerseyServlet.setInitOrder(0);
@@ -26,5 +29,11 @@ public class Main {
         } finally {
             jettyServer.destroy();
         }
+    }
+
+    private static void addedError404Handler(ServletContextHandler context) {
+        ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
+        errorHandler.addErrorPage(404, "/command/status");
+        context.setErrorHandler(errorHandler);
     }
 }
