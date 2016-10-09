@@ -19,9 +19,8 @@ public class HttpRest {
     @Path("/start/{password}")
     @Produces("application/json")
     public Response startComputer(@PathParam("password") String password) throws JsonProcessingException {
-        String resultBody = generateSuccessResponse();
         NetworkManager.getInstance().sendWakeOnLanPackage(password);
-        return Response.status(200).entity(resultBody).build();
+        return Response.status(200).entity(generateSuccessResponse()).build();
     }
 
     @GET

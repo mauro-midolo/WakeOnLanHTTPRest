@@ -2,7 +2,7 @@
 
 SERVICE_NAME=UtilsService
 JAR_FILE=serverService-1.0-SNAPSHOT-jar-with-dependencies.jar
-JAR_PARAMETER=
+JAR_PARAMETER=-Xmx128M
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PATH_TO_JAR="$SCRIPT_DIR/$JAR_FILE"
