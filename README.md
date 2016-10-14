@@ -1,6 +1,9 @@
 # WindowsStartUp ![build status](https://travis-ci.org/mmxx91/WakeOnLanHTTPRest.svg?branch=master)
 This project is available for startup any computer in the local network from a server such as a raspberry pi
 
+#Scenario
+![scenario](https://cloud.githubusercontent.com/assets/10880247/19399841/bdd538ca-9253-11e6-8fc0-9f51d5abdb18.PNG)
+
 #Installation
 * edit _server.properties_ with your configuration 
     * change _mac.address_ with the computer's mac address that you want to start up
