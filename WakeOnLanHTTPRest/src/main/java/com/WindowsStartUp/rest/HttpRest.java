@@ -1,9 +1,11 @@
 package com.WindowsStartUp.rest;
 
+import com.WindowsStartUp.Manager;
 import com.WindowsStartUp.NetworkManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -15,11 +17,22 @@ import java.util.Map;
 @Path("/command")
 public class HttpRest {
 
+    private Manager networkManager;
+
+    public HttpRest(Manager networkManager) {
+        this.networkManager = networkManager;
+    }
+
+    @PostConstruct
+    void init(){
+        networkManager = NetworkManager.getInstance();
+    }
+
     @GET
     @Path("/start/{password}")
     @Produces("application/json")
     public Response startComputer(@PathParam("password") String password) throws JsonProcessingException {
-        NetworkManager.getInstance().sendWakeOnLanPackage(password);
+        networkManager.sendWakeOnLanPackage(password);
         return Response.status(200).entity(generateSuccessResponse()).build();
     }
 
@@ -27,7 +40,7 @@ public class HttpRest {
     @Path("/start/{password}/{macAddress}")
     @Produces("application/json")
     public Response startComputer(@PathParam("password") String password, @PathParam("macAddress") String macAddress) throws JsonProcessingException {
-        NetworkManager.getInstance().sendWakeOnLanPackage(password, macAddress);
+        networkManager.sendWakeOnLanPackage(password, macAddress);
         return Response.status(200).entity(generateSuccessResponse()).build();
     }
 
