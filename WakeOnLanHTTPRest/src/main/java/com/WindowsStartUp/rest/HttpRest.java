@@ -19,7 +19,7 @@ public class HttpRest {
 
     private Manager networkManager;
 
-    public HttpRest(Manager networkManager) {
+    HttpRest(Manager networkManager) {
         this.networkManager = networkManager;
     }
 
