@@ -20,8 +20,14 @@ Available on: GET /command/status
 Returns a json value as follow:
 _{"Status":"OK"}_
 
-## Startup a network pc
+## Startup a network pc, reading mac address from configuration file
 Use it to starting any computer in network lan, using Wake On Lan (WOL) protocol
 Available on: GET /command/start/{passoword}
+For security reasons, it returns always a json value as follow:
+_{"Status":"OK"}_
+
+## Startup a network pc, specifying mac address 
+Use it to starting any computer in network lan, using Wake On Lan (WOL) protocol
+Available on: GET /command/start/{passoword}/{mac-address}
 For security reasons, it returns always a json value as follow:
 _{"Status":"OK"}_

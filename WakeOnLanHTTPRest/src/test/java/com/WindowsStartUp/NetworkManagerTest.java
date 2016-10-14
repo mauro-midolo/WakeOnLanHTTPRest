@@ -17,6 +17,7 @@ public class NetworkManagerTest {
     private static final String MAC_ADDRESS = "00-00-00-00-00";
     private static final String BROADCAST_IP = "192.168.0.255";
     private Manager manager;
+
     @Rule
     public final JUnitRuleMockery context = new JUnitRuleMockery();
     @Mock
@@ -39,6 +40,20 @@ public class NetworkManagerTest {
             oneOf(networkRepository).getBroadCastIps();
             will(returnValue(Collections.singletonList(BROADCAST_IP)));
             oneOf(networkRepository).executeWOL(MAC_ADDRESS, BROADCAST_IP);
+        }});
+
+        manager.sendWakeOnLanPackage(PASSWORD);
+    }
+
+    @Test
+    public void shouldNotRaiseExceptionIfMacAddressIsMissing() throws Exception {
+        context.checking(new Expectations() {{
+            allowing(applicationProperties).getProperty("mac.address");
+            will(returnValue(null));
+            oneOf(applicationProperties).getProperty("security.password");
+            will(returnValue(PASSWORD));
+            never(networkRepository).getBroadCastIps();
+            never(networkRepository).executeWOL(MAC_ADDRESS, BROADCAST_IP);
         }});
 
         manager.sendWakeOnLanPackage(PASSWORD);
