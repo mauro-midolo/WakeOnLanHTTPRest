@@ -37,7 +37,7 @@ public class NetworkManager implements Manager {
             return;
         }
         if (macAddress == null || macAddress.isEmpty()) {
-            throw new RuntimeException("mac address is required");
+            return;
         }
         List<String> broadCastIps = networkRepository.getBroadCastIps();
         broadCastIps.forEach(broadCastIp -> networkRepository.executeWOL(macAddress, broadCastIp));
