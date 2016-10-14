@@ -1,4 +1,4 @@
-# WindowsStartUp
+# WindowsStartUp ![build status](https://travis-ci.org/mmxx91/WakeOnLanHTTPRest.svg?branch=master)
 This project is available for startup any computer in the local network from a server such as a raspberry pi
 
 #Installation
