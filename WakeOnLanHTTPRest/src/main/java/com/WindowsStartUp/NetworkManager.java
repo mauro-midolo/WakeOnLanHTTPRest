@@ -40,7 +40,12 @@ public class NetworkManager implements Manager {
             return;
         }
         List<String> broadCastIps = networkRepository.getBroadCastIps();
-        broadCastIps.forEach(broadCastIp -> networkRepository.executeWOL(macAddress, broadCastIp));
+        broadCastIps.forEach(broadCastIp -> {
+            try {
+                networkRepository.executeWOL(macAddress, broadCastIp);
+            } catch (IllegalArgumentException ignored) {
+            }
+        });
     }
 
 
@@ -50,7 +55,8 @@ public class NetworkManager implements Manager {
                 && inputPasswordIsNullOrNotEqualsToStoredPassword(password, securityPasswordFromFileProperty);
     }
 
-    private boolean inputPasswordIsNullOrNotEqualsToStoredPassword(String password, String securityPasswordFromFileProperty) {
+    private boolean inputPasswordIsNullOrNotEqualsToStoredPassword(String password, String
+            securityPasswordFromFileProperty) {
         return password == null || password.isEmpty() || !password.equals(securityPasswordFromFileProperty);
     }
 

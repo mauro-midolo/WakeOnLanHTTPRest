@@ -23,6 +23,8 @@ public class HttpRest {
         this.networkManager = networkManager;
     }
 
+    public HttpRest() {}
+
     @PostConstruct
     void init(){
         networkManager = NetworkManager.getInstance();
