@@ -12,23 +12,30 @@ public class Main {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
 
-        Server jettyServer = new Server(ApplicationFileProperties.getInstance().getIntProperty("http.port", 8080));
-        jettyServer.setHandler(context);
-
-        addedError404Handler(context);
-
-        ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, "/*");
-        jerseyServlet.setInitOrder(0);
-
-        jerseyServlet.setInitParameter("jersey.config.server.provider.classnames", HttpRest.class.getCanonicalName());
+        Server jettyServer = configureJettyServer(context);
 
         try {
             jettyServer.start();
-            org.eclipse.jetty.http.HttpGenerator.setJettyVersion("WindowsStartUp");
+            setJettyVersion("WakeOnLanHTTPRest");
             jettyServer.join();
         } finally {
             jettyServer.destroy();
         }
+    }
+
+    private static void setJettyVersion(String jettyVersion) {
+        org.eclipse.jetty.http.HttpGenerator.setJettyVersion(jettyVersion);
+    }
+
+    private static Server configureJettyServer(ServletContextHandler context) {
+        ApplicationFileProperties applicationFileProperties = new ApplicationFileProperties();
+        Server jettyServer = new Server(applicationFileProperties.getIntProperty("http.port", 8080));
+        jettyServer.setHandler(context);
+        addedError404Handler(context);
+        ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, "/*");
+        jerseyServlet.setInitOrder(0);
+        jerseyServlet.setInitParameter("jersey.config.server.provider.classnames", HttpRest.class.getCanonicalName());
+        return jettyServer;
     }
 
     private static void addedError404Handler(ServletContextHandler context) {

@@ -24,6 +24,14 @@ public class HttpRest {
     }
 
     @GET
+    @Path("/start/{password}/{macAddress}")
+    @Produces("application/json")
+    public Response startComputer(@PathParam("password") String password, @PathParam("macAddress") String macAddress) throws JsonProcessingException {
+        NetworkManager.getInstance().sendWakeOnLanPackage(password, macAddress);
+        return Response.status(200).entity(generateSuccessResponse()).build();
+    }
+
+    @GET
     @Path("/status")
     @Produces("application/json")
     public Response checkServer() throws JsonProcessingException {
