@@ -12,4 +12,10 @@
     <modules>
         <module>WakeOnLanHTTPRest</module>
     </modules>
+
+    <scm>
+        <connection>scm:git:git@github.com:mmxx91/WakeOnLanHTTPRest.git</connection>
+        <url>scm:git:git@github.com:mmxx91/WakeOnLanHTTPRest.git</url>
+        <developerConnection>scm:git:git@github.com:mmxx91/WakeOnLanHTTPRest.git</developerConnection>
+    </scm>
 </project>
