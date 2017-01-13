@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVICE_NAME=WakeOnLanHTTPRest-1.1.0
-JAR_FILE=WakeOnLanHTTPRest-1.1.0-SNAPSHOT-jar-with-dependencies.jar
+JAR_FILE=WakeOnLanHTTPRest-1.2.0-SNAPSHOT-jar-with-dependencies.jar
 JAR_PARAMETER=-Xmx128M
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
