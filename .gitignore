@@ -48,6 +48,7 @@ fabric.properties
 *.zip
 *.tar.gz
 *.rar
+*.iml
 hs_err_pid*
 target/
 pom.xml.tag
@@ -59,4 +60,3 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-*.iml
