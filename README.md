@@ -1,4 +1,4 @@
-# WindowsStartUp ![build status](https://travis-ci.org/mmxx91/WakeOnLanHTTPRest.svg?branch=master) [![codecov](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest/branch/master/graph/badge.svg)](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest)
+# WindowsStartUp [![Build Status](https://travis-ci.org/mauro-midolo/WakeOnLanHTTPRest.svg?branch=master)](https://travis-ci.org/mauro-midolo/WakeOnLanHTTPRest) [![codecov](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest/branch/master/graph/badge.svg)](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest)
 
 This project is available for startup any computer in the local network from a server such as a raspberry pi
 
