@@ -45,9 +45,9 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/mmxx91/WakeOnLanHTTPRest.git</connection>
-        <developerConnection>scm:git:git@github.com:mmxx91/WakeOnLanHTTPRest.git</developerConnection>
-        <url>https://github.com/mmxx91/WakeOnLanHTTPRest</url>
+        <connection>scm:git:https://github.com/mauro-midolo/WakeOnLanHTTPRest.git</connection>
+        <developerConnection>scm:git:git@github.com:mauro-midolo/WakeOnLanHTTPRest.git</developerConnection>
+        <url>https://github.com/mauro-midolo/WakeOnLanHTTPRest</url>
         <tag>HEAD</tag>
     </scm>
 </project>
