@@ -3,8 +3,6 @@ package com.WindowsStartUp;
 import com.WindowsStartUp.properties.ApplicationFileProperties;
 import com.WindowsStartUp.properties.ApplicationProperties;
 
-import java.io.IOException;
-import java.net.*;
 import java.util.List;
 
 public class NetworkManager implements Manager {
@@ -14,7 +12,7 @@ public class NetworkManager implements Manager {
 
     public static NetworkManager getInstance() {
         if (instance == null) {
-            instance = new NetworkManager(new NetworkRepositoryImpl(), new ApplicationFileProperties());
+            instance = new NetworkManager(new NetworkRepositoryImpl(), new ApplicationFileProperties("./server.properties"));
         }
         return instance;
     }

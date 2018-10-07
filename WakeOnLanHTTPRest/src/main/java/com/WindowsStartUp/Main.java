@@ -28,7 +28,7 @@ public class Main {
     }
 
     private static Server configureJettyServer(ServletContextHandler context) {
-        ApplicationFileProperties applicationFileProperties = new ApplicationFileProperties();
+        ApplicationFileProperties applicationFileProperties = new ApplicationFileProperties("./server.properties");
         Server jettyServer = new Server(applicationFileProperties.getIntProperty("http.port", 8080));
         jettyServer.setHandler(context);
         addedError404Handler(context);

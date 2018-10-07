@@ -7,10 +7,9 @@ public class ApplicationFileProperties implements ApplicationProperties {
 
     private final Properties properties;
 
-    public ApplicationFileProperties() {
+    public ApplicationFileProperties(String path) {
         properties = new Properties();
         FileInputStream file;
-        String path = "./server.properties";
         try {
             file = new FileInputStream(path);
             properties.load(file);
