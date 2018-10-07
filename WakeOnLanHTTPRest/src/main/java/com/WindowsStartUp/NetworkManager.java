@@ -9,7 +9,6 @@ import java.util.List;
 
 public class NetworkManager implements Manager {
     private static NetworkManager instance;
-
     private NetworkRepository networkRepository;
     private final ApplicationProperties applicationProperties;
 
@@ -48,7 +47,6 @@ public class NetworkManager implements Manager {
         });
     }
 
-
     private boolean passwordIsNotValid(String password) {
         String securityPasswordFromFileProperty = getSecurityPasswordFromFileProperty();
         return !passwordStoredInFileIsNotSetOrEmpty(securityPasswordFromFileProperty)
@@ -71,6 +69,4 @@ public class NetworkManager implements Manager {
     private String getSecurityPasswordFromFileProperty() {
         return applicationProperties.getProperty("security.password");
     }
-
-
 }
