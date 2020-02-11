@@ -15,8 +15,7 @@ public class ApplicationFileProperties implements ApplicationProperties {
             properties.load(file);
             file.close();
         } catch (java.io.IOException e) {
-            System.out.println("Impossible to read server.properties file");
-            System.exit(1);
+            throw new RuntimeException("Impossible to read server.properties file");
         }
     }
 
@@ -35,7 +34,7 @@ public class ApplicationFileProperties implements ApplicationProperties {
         try {
             return Integer.valueOf(getProperty(name, String.valueOf(defaultValue)));
         } catch (NumberFormatException e) {
-            return defaultValue;
+            throw new RuntimeException("Property " + name + "should be a integer!");
         }
     }
 }
