@@ -36,8 +36,8 @@ public class ApplicationFilePropertiesTest {
         assertEquals("DefaultValue", result);
     }
 
-    @Test(expected = RuntimeException.class)
-    public void shouldRaiseAnErrorIfFileNotExists() {
+    @Test
+    public void shouldNothingIfFileNotExists() {
         new ApplicationFileProperties("notExistsFile.properties");
     }
 
@@ -55,8 +55,8 @@ public class ApplicationFilePropertiesTest {
         assertEquals(91, result);
     }
 
-    @Test(expected = RuntimeException.class)
-    public void shouldRaiseAnErrorIfVariableNotANumber() {
+    @Test
+    public void shouldUseDefaultIfVariableNotANumber() {
         ApplicationProperties applicationProperties = new ApplicationFileProperties(getPathOf("test1.properties"));
         applicationProperties.getIntProperty("mac.address", 91);
     }
