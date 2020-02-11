@@ -43,5 +43,5 @@ case $1 in
         fi
     ;;
     *)
-        echo "Usage: ./"$(basename "$0")" {start|stop|restart|status}"
+        echo "Usage: ./$(basename "$0") {start|stop|restart|status}"
 esac
