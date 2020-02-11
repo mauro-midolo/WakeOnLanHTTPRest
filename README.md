@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b174c0945cf84c788e839327c5e4bd10)](https://app.codacy.com/manual/mmxx1991/WakeOnLanHTTPRest?utm_source=github.com&utm_medium=referral&utm_content=mauro-midolo/WakeOnLanHTTPRest&utm_campaign=Badge_Grade_Dashboard)
 # WindowsStartUp [![Build Status](https://travis-ci.org/mauro-midolo/WakeOnLanHTTPRest.svg?branch=master)](https://travis-ci.org/mauro-midolo/WakeOnLanHTTPRest) [![codecov](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest/branch/master/graph/badge.svg)](https://codecov.io/gh/mauro-midolo/WakeOnLanHTTPRest)
 
 This project is available for startup any computer in the local network from a server such as a raspberry pi
