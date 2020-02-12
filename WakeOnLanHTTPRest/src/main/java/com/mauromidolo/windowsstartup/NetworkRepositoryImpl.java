@@ -1,4 +1,4 @@
-package com.WindowsStartUp;
+package com.mauromidolo.windowsstartup;
 
 import java.io.IOException;
 import java.net.*;

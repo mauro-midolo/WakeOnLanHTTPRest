@@ -1,7 +1,7 @@
-package com.WindowsStartUp;
+package com.mauromidolo.windowsstartup;
 
-import com.WindowsStartUp.properties.ApplicationFileProperties;
-import com.WindowsStartUp.properties.ApplicationProperties;
+import com.mauromidolo.windowsstartup.properties.ApplicationFileProperties;
+import com.mauromidolo.windowsstartup.properties.ApplicationProperties;
 
 import java.util.List;
 

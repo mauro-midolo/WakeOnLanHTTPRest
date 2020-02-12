@@ -1,4 +1,4 @@
-package com.WindowsStartUp.properties;
+package com.mauromidolo.windowsstartup.properties;
 
 public interface ApplicationProperties {
     String getProperty(String name);

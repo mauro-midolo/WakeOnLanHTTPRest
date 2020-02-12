@@ -1,4 +1,4 @@
-package com.WindowsStartUp.properties;
+package com.mauromidolo.windowsstartup.properties;
 
 import org.junit.Test;
 

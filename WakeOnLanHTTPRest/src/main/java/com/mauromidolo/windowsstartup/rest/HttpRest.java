@@ -1,7 +1,7 @@
-package com.WindowsStartUp.rest;
+package com.mauromidolo.windowsstartup.rest;
 
-import com.WindowsStartUp.Manager;
-import com.WindowsStartUp.NetworkManager;
+import com.mauromidolo.windowsstartup.Manager;
+import com.mauromidolo.windowsstartup.NetworkManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

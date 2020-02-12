@@ -1,8 +1,8 @@
-package com.WindowsStartUp;
+package com.mauromidolo.windowsstartup;
 
-import com.WindowsStartUp.jetty.JettyHttpServer;
-import com.WindowsStartUp.jetty.WebServer;
-import com.WindowsStartUp.properties.ApplicationFileProperties;
+import com.mauromidolo.windowsstartup.jetty.JettyHttpServer;
+import com.mauromidolo.windowsstartup.jetty.WebServer;
+import com.mauromidolo.windowsstartup.properties.ApplicationFileProperties;
 
 public class Main {
     public static void main(String[] args) throws Exception {

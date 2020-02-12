@@ -1,4 +1,4 @@
-package com.WindowsStartUp;
+package com.mauromidolo.windowsstartup;
 
 
 public interface Manager {

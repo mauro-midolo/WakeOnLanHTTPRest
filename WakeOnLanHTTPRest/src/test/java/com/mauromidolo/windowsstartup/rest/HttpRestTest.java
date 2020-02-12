@@ -1,6 +1,6 @@
-package com.WindowsStartUp.rest;
+package com.mauromidolo.windowsstartup.rest;
 
-import com.WindowsStartUp.Manager;
+import com.mauromidolo.windowsstartup.Manager;
 import org.jmock.Expectations;
 import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;

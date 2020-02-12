@@ -1,6 +1,6 @@
-package com.WindowsStartUp;
+package com.mauromidolo.windowsstartup;
 
-import com.WindowsStartUp.properties.ApplicationProperties;
+import com.mauromidolo.windowsstartup.properties.ApplicationProperties;
 import org.jmock.Expectations;
 import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;

@@ -1,4 +1,4 @@
-package com.WindowsStartUp.jetty;
+package com.mauromidolo.windowsstartup.jetty;
 
 public interface WebServer {
     void start() throws Exception;

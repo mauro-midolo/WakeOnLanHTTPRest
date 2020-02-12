@@ -1,6 +1,6 @@
-package com.WindowsStartUp.jetty;
+package com.mauromidolo.windowsstartup.jetty;
 
-import com.WindowsStartUp.rest.HttpRest;
+import com.mauromidolo.windowsstartup.rest.HttpRest;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
