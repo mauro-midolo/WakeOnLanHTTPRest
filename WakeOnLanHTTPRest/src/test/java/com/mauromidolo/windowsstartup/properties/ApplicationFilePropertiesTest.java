@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.Objects;
 
-import static org.junit.Assert.*;
+import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class ApplicationFilePropertiesTest {
 
