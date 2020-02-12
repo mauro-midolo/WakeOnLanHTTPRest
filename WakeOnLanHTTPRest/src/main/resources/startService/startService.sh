@@ -8,7 +8,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PATH_TO_JAR="$SCRIPT_DIR/$JAR_FILE"
 CURRENT_PID=$(ps aux |grep $JAR_FILE | grep -v grep | awk '{print $2}')
 
-if [ ! -f $PATH_TO_JAR ]; then
+if [ ! -f "$PATH_TO_JAR" ]; then
     echo "$PATH_TO_JAR not exists!"
     exit 1
 fi
