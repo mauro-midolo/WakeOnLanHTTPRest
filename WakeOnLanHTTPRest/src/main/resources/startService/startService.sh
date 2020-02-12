@@ -17,7 +17,7 @@ cd "$SCRIPT_DIR"
 case $1 in
     start)
         if [ -z "$CURRENT_PID" ]; then
-            nohup java ${JAR_PARAMETER} -jar ${PATH_TO_JAR} 2>> /dev/null >> /dev/null &
+            nohup java "${JAR_PARAMETER}" -jar "${PATH_TO_JAR}" 2>> /dev/null >> /dev/null &
             echo "$SERVICE_NAME started ..."
         else
             echo "$SERVICE_NAME is already running ..."
