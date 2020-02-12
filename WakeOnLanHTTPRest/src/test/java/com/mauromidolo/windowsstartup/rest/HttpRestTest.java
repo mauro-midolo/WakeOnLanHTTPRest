@@ -10,7 +10,8 @@ import org.junit.Test;
 
 import javax.ws.rs.core.Response;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 
 public class HttpRestTest {
     private static final String PASSWORD = "PASSWORD";
