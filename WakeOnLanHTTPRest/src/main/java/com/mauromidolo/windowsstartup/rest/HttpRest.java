@@ -26,7 +26,7 @@ public class HttpRest {
     public HttpRest() {}
 
     @PostConstruct
-    void init(){
+    public void init(){
         networkManager = NetworkManager.getInstance();
     }
 
