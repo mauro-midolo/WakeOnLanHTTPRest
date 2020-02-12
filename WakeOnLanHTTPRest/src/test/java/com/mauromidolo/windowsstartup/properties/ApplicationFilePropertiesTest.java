@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import java.util.Objects;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class ApplicationFilePropertiesTest {
 
@@ -34,11 +32,6 @@ public class ApplicationFilePropertiesTest {
         ApplicationProperties applicationProperties = new ApplicationFileProperties(getPathOf("test1.properties"));
         String result = applicationProperties.getProperty("notExists", "DefaultValue");
         assertEquals("DefaultValue", result);
-    }
-
-    @Test
-    public void shouldNothingIfFileNotExists() {
-        new ApplicationFileProperties("notExistsFile.properties");
     }
 
     @Test
