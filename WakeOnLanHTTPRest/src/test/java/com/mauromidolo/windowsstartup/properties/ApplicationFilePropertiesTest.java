@@ -53,7 +53,8 @@ public class ApplicationFilePropertiesTest {
     @Test
     public void shouldUseDefaultIfVariableNotANumber() {
         ApplicationProperties applicationProperties = new ApplicationFileProperties(getPathOf("test1.properties"));
-        applicationProperties.getIntProperty("mac.address", 91);
+        Integer result = applicationProperties.getIntProperty("mac.address", 91);
+        assertEquals(91, result.intValue());
     }
 
     private String getPathOf(String name) {
