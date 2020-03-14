@@ -32,7 +32,7 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldManagesCorrectStartRequest() throws Exception {
+    public void shouldManagesCorrectStartRequest() {
         context.checking(new Expectations() {{
             allowing(applicationProperties).getProperty("mac.address");
             will(returnValue(MAC_ADDRESS));
@@ -47,7 +47,7 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldNotRaiseExceptionIfMacAddressIsMissing() throws Exception {
+    public void shouldNotRaiseExceptionIfMacAddressIsMissing() {
         context.checking(new Expectations() {{
             allowing(applicationProperties).getProperty("mac.address");
             will(returnValue(null));
@@ -61,7 +61,7 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldReturnsIfPasswordIsWrong() throws Exception {
+    public void shouldReturnsIfPasswordIsWrong() {
         context.checking(new Expectations() {{
             allowing(applicationProperties).getProperty("mac.address");
             will(returnValue(MAC_ADDRESS));
@@ -76,7 +76,7 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldManagesCorrectStartRequestWithMacAddress() throws Exception {
+    public void shouldManagesCorrectStartRequestWithMacAddress() {
         context.checking(new Expectations() {{
             oneOf(applicationProperties).getProperty("security.password");
             will(returnValue(PASSWORD));
@@ -89,7 +89,7 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldReturnsIfPasswordIsWrongeWithMacAddress() throws Exception {
+    public void shouldReturnsIfPasswordIsWrongeWithMacAddress() {
         context.checking(new Expectations() {{
             oneOf(applicationProperties).getProperty("security.password");
             will(returnValue(PASSWORD));
