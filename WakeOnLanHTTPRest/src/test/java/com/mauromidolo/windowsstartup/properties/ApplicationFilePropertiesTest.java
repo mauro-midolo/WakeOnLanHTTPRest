@@ -12,7 +12,8 @@ public class ApplicationFilePropertiesTest {
 
     @Test
     public void shouldCreateInstance() {
-        new ApplicationFileProperties(getPathOf("test1.properties"));
+        ApplicationFileProperties applicationFileProperties = new ApplicationFileProperties(getPathOf("test1.properties"));
+        assertNotNull(applicationFileProperties);
     }
 
     @Test
