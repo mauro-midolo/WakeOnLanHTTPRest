@@ -87,10 +87,11 @@ public class NetworkManagerTest {
         }});
 
         manager.sendWakeOnLanPackage(PASSWORD, MAC_ADDRESS);
+        Assert.assertNotNull(manager);
     }
 
     @Test
-    public void shouldReturnsIfPasswordIsWrongeWithMacAddress() {
+    public void shouldReturnsIfPasswordIsWrongWithMacAddress() {
         context.checking(new Expectations() {{
             oneOf(applicationProperties).getProperty("security.password");
             will(returnValue(PASSWORD));
@@ -99,5 +100,6 @@ public class NetworkManagerTest {
         }});
 
         manager.sendWakeOnLanPackage(WRONG_PASSWORD, MAC_ADDRESS);
+        Assert.assertNotNull(manager);
     }
 }
