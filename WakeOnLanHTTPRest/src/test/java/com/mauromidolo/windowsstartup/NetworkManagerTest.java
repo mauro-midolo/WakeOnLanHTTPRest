@@ -59,6 +59,7 @@ public class NetworkManagerTest {
         }});
 
         manager.sendWakeOnLanPackage(PASSWORD);
+        Assert.assertNotNull(manager);
     }
 
     @Test
