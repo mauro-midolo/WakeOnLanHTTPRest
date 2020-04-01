@@ -1,6 +1,9 @@
 package com.mauromidolo.windowsstartup.jetty;
 
 import com.mauromidolo.windowsstartup.rest.HttpRest;
+import org.eclipse.jetty.server.ConnectionFactory;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -13,7 +16,17 @@ public class JettyHttpServer implements WebServer {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         jettyServer = configureJettyServer(context, httpPort);
-        org.eclipse.jetty.http.HttpGenerator.setJettyVersion(version);
+        setServerHeader(jettyServer, version);
+    }
+
+    private void setServerHeader(Server jettyServer, String version) {
+        for(Connector y : jettyServer.getConnectors()) {
+            for(ConnectionFactory x  : y.getConnectionFactories()) {
+                if(x instanceof HttpConnectionFactory) {
+                    ((HttpConnectionFactory)x).getHttpConfiguration().setSendServerVersion(false);
+                }
+            }
+        }
     }
 
     private static Server configureJettyServer(ServletContextHandler context, int httpPort) {
