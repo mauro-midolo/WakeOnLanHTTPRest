@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ApplicationFileProperties applicationFileProperties = new ApplicationFileProperties("./server.properties");
         int httpPort = applicationFileProperties.getIntProperty("http.port", 8080);
-        WebServer httpServer = new JettyHttpServer("WakeOnLanHTTPRest", httpPort);
+        WebServer httpServer = new JettyHttpServer(httpPort);
         try {
             httpServer.start();
             httpServer.join();

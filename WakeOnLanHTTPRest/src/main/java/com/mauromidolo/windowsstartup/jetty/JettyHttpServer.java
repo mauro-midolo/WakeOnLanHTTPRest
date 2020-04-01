@@ -12,14 +12,14 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class JettyHttpServer implements WebServer {
     private final Server jettyServer;
 
-    public JettyHttpServer(String version, int httpPort) {
+    public JettyHttpServer(int httpPort) {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         jettyServer = configureJettyServer(context, httpPort);
-        setServerHeader(jettyServer, version);
+        setServerHeader(jettyServer);
     }
 
-    private void setServerHeader(Server jettyServer, String version) {
+    private void setServerHeader(Server jettyServer) {
         for(Connector y : jettyServer.getConnectors()) {
             for(ConnectionFactory x  : y.getConnectionFactories()) {
                 if(x instanceof HttpConnectionFactory) {
