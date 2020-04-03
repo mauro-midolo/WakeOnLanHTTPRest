@@ -5,7 +5,7 @@
 *.LOCAL.*
 *.REMOTE.*
 *_BACKUP_*.txt
-*_BASE_*.txt
+*_BASE_*.txtgpgp
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 .idea/*

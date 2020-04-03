@@ -160,6 +160,11 @@
             <name>Mauro Midolo</name>
         </contributor>
     </contributors>
+    <developers>
+        <developer>
+            <name>Mauro Midolo</name>
+        </developer>
+    </developers>
     <licenses>
         <license>
             <name>Apache-2.0</name>
