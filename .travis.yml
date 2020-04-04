@@ -1,9 +1,12 @@
 language: java
 sudo: false
-script: mvn clean install -f WakeOnLanHTTPRest
-jdk:
-  - oraclejdk11
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+before_install:
+  - sh travis/create_gpg_key.sh
 
+jobs:
+  include:
+    - stage: Test and Coverage
+      script: "mvn clean install -f WakeOnLanHTTPRest"
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
