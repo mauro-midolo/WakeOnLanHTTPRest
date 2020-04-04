@@ -1,7 +1,7 @@
 #!/bin/sh
-Passphrase=${env.PASSPHRASE}
-NameReal=${env.MYNAME}
-NameEmail=${env.MYEMAIL}
+Passphrase=${PASSPHRASE}
+NameReal=${MYNAME}
+NameEmail=${MYEMAIL}
 cat > keydetails <<EOF
     %echo Generating a basic OpenPGP key
     Key-Type: RSA
