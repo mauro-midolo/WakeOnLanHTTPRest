@@ -3,7 +3,7 @@ os: linux
 dist: trusty
 
 before_install:
-  - sh .travis/create_gpg_key.sh
+  - sh .travis/init.sh
 
 jobs:
   include:
