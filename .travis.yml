@@ -9,4 +9,4 @@ jobs:
   include:
     - stage: Deploy Release
       script: "mvn clean release:prepare release:perform --batch-mode --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests"
-      if: branch = master
+      if: (branch = master) AND (tag IS present)
