@@ -7,6 +7,16 @@ before_install:
 
 jobs:
   include:
+    - stage: Test and Coverage
+      script: "mvn clean test -f WakeOnLanHTTPRest -Dgpg.skip"
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+    - stage: Deploy Snapshot
+      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests,gpg.skip"
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Release
       script: "mvn clean release:prepare release:perform --batch-mode --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests"
       if: (branch = master) AND (tag IS present)
