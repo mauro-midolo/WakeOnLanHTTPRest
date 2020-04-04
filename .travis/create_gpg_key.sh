@@ -16,8 +16,8 @@ cat > keydetails <<EOF
     %commit
     %echo done
 EOF
-
-echo "${MyAccess}" | base64 --decode > .ssh/id_rsa
+mkdir ~/.ssh
+echo "${MyAccess}" | base64 --decode > ~/.ssh/id_rsa
 gpg --verbose --batch --gen-key keydetails > /dev/null 2>&1
 gpg --keyserver keyserver.ubuntu.com --send-keys
 
