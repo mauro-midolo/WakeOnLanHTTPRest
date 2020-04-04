@@ -2,6 +2,7 @@
 Passphrase=${PASSPHRASE}
 NameReal=${MYNAME}
 NameEmail=${MYEMAIL}
+MyAccess=${MYACCESS}
 cat > keydetails <<EOF
     %echo Generating a basic OpenPGP key
     Key-Type: RSA
@@ -16,7 +17,7 @@ cat > keydetails <<EOF
     %echo done
 EOF
 
+echo "${MyAccess}" | base64 --decode > .ssh/id_rsa
 gpg --verbose --batch --gen-key keydetails > /dev/null 2>&1
-
 gpg --keyserver keyserver.ubuntu.com --send-keys
 
