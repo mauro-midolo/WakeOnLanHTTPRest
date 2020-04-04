@@ -2,5 +2,5 @@
 
 set -e
 
-mvn clean release:prepare release:perform -Dresume=false --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests
+mvn clean release:prepare release:perform -DdryRun=true -Dresume=false --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests
 git push
