@@ -3,7 +3,7 @@ os: linux
 dist: trusty
 
 before_install:
-  - sh travis/create_gpg_key.sh
+  - sh .travis/create_gpg_key.sh
 
 jobs:
   include:
@@ -13,7 +13,7 @@ jobs:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Snapshot
-      script: "mvn clean deploy -f WakeOnLanHTTPRest -Dgpg.skip"
+      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -Dgpg.skip"
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
