@@ -16,7 +16,7 @@ cat > keydetails <<EOF
     %echo done
 EOF
 
-gpg --verbose --batch --gen-key keydetails
+gpg --verbose --batch --gen-key keydetails > /dev/null 2>&1
 
 gpg --keyserver keyserver.ubuntu.com --send-keys
 
