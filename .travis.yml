@@ -18,7 +18,7 @@ jobs:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Release
-      script: "mvn clean release:prepare release:perform -Dresume=false --batch-mode --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests"
+      script: "mvn clean release:prepare release:perform --batch-mode --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests"
       after_success:
         - git push
       if: (branch = master) AND (tag IS blank)
