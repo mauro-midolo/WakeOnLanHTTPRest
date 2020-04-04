@@ -1,5 +1,7 @@
 language: java
-sudo: false
+os: linux
+dist: trusty
+
 before_install:
   - sh travis/create_gpg_key.sh
 
