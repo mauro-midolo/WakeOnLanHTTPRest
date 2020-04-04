@@ -13,7 +13,7 @@ jobs:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Snapshot
-      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests -Dgpg.skip"
+      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests,gpg.skip"
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
