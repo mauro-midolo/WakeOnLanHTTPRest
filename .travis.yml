@@ -19,4 +19,4 @@ jobs:
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Release
       script: "mvn clean release:prepare release:perform --batch-mode --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests"
-      if: (branch = master) AND (tag IS present)
+      if: (branch = master) AND (tag IS blank)
