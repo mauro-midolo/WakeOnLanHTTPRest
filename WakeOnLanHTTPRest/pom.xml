@@ -4,7 +4,7 @@
 
     <groupId>com.github.mauro-midolo</groupId>
     <artifactId>WakeOnLanHTTPRest</artifactId>
-    <version>2.1.20-SNAPSHOT</version>
+    <version>2.1.20</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,17 +71,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -229,7 +218,7 @@
         <connection>scm:git:https://github.com/mauro-midolo/WakeOnLanHTTPRest.git</connection>
         <developerConnection>scm:git:git@github.com:mauro-midolo/WakeOnLanHTTPRest.git</developerConnection>
         <url>https://github.com/mauro-midolo/WakeOnLanHTTPRest</url>
-        <tag>HEAD</tag>
+        <tag>WakeOnLanHTTPRest-2.1.20</tag>
     </scm>
 
     <distributionManagement>
