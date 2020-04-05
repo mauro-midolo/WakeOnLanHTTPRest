@@ -9,5 +9,5 @@ cd WakeOnLanHTTPRest
 mvn initialize
 cat release.properties
 echo "HEREEE"
-mvn release:clean release:prepare release:perform -B --settings .travis/settings.xml
+mvn release:clean release:prepare release:perform -B
 git push
