@@ -3,6 +3,7 @@ os: linux
 dist: trusty
 
 before_install:
+  - sudo apt-get --only-upgrade install maven
   - sudo apt-get -y install gpgv2
   - sh .travis/init.sh
 
