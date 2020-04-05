@@ -9,16 +9,16 @@ before_install:
 
 jobs:
   include:
-    - stage: Test and Coverage
-      script: "mvn clean test -f WakeOnLanHTTPRest -Dgpg.skip"
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
-        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
-    - stage: Deploy Snapshot
-      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests,gpg.skip"
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
-        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+#    - stage: Test and Coverage
+#      script: "mvn clean test -f WakeOnLanHTTPRest -Dgpg.skip"
+#      after_success:
+#        - bash <(curl -s https://codecov.io/bash)
+#        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+#    - stage: Deploy Snapshot
+#      script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests,gpg.skip"
+#      after_success:
+#        - bash <(curl -s https://codecov.io/bash)
+#        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Release
       script: "bash .travis/maven_release.sh"
       if: (branch = master) AND (tag IS blank)
