@@ -20,5 +20,5 @@ mkdir ~/.ssh
 echo "${MyAccess}" | base64 --decode > ~/.ssh/id_rsa
 chmod 400 ~/.ssh/id_rsa
 gpg --verbose --batch --gen-key keydetails > /dev/null 2>&1
-gpg --keyserver keyserver.ubuntu.com --send-keys
+#gpg --keyserver keyserver.ubuntu.com --send-keys
 
