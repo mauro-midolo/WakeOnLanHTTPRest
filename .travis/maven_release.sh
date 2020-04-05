@@ -9,5 +9,7 @@ cd WakeOnLanHTTPRest
 mvn initialize
 cat release.properties
 echo "HEREEE"
-mvn release:clean release:prepare release:perform -B
+mvn release:clean release:prepare -B
 git push
+git pull
+mvn release:perform
