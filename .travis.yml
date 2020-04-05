@@ -20,4 +20,4 @@ jobs:
 #        - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: Deploy Release
       script: "bash .travis/maven_release.sh"
-      if: (branch = master) AND (tag IS blank)
+      if: (branch = master) AND (tag IS blank) AND (commit_message !~ /.*maven\-release.*/)
