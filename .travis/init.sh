@@ -7,4 +7,3 @@ chmod 400 ~/.ssh/id_rsa
 echo "${MyKey}" | base64 --decode > mykey.key
 chmod 400 mykey.key
 gpg --import mykey.key
-
