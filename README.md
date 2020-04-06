@@ -12,12 +12,13 @@ This project is available for startup any computer in the local network from a s
     *   change _mac.address_ with the computer's mac address that you want to start up
     *   change _security.password_ with stronge password
     
+    
 *   add execution mode for startService.sh (chmod +x startService.sh)
 
 *   execute startService.sh with start (./startService.sh start)
 
 *   check if server is start up
-    *   with browser go http://localhost:8080/command/status
+    *   with browser go [http://localhost:8080/command/status](http://localhost:8080/command/status)
 
 ## HTTP REST API
 ### Check Status
