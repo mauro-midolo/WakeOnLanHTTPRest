@@ -6,18 +6,18 @@ This project is available for startup any computer in the local network from a s
 ![scenario](https://cloud.githubusercontent.com/assets/10880247/19399841/bdd538ca-9253-11e6-8fc0-9f51d5abdb18.PNG)
 
 ## Installation
-* Download [last version](https://github.com/mauro-midolo/WakeOnLanHTTPRest/releases/download/v1.1.0/WakeOnLanHTTPRest-1.1.0.zip)
+*   Download [last version](https://github.com/mauro-midolo/WakeOnLanHTTPRest/releases/download/v1.1.0/WakeOnLanHTTPRest-1.1.0.zip)
 
-* edit _server.properties_ with your configuration 
-    * change _mac.address_ with the computer's mac address that you want to start up
-    * change _security.password_ with stronge password
+*   edit _server.properties_ with your configuration 
+    *   change _mac.address_ with the computer's mac address that you want to start up
+    *   change _security.password_ with stronge password
     
-* add execution mode for startService.sh (chmod +x startService.sh)
+*   add execution mode for startService.sh (chmod +x startService.sh)
 
-* execute startService.sh with start (./startService.sh start)
+*   execute startService.sh with start (./startService.sh start)
 
-* check if server is start up
-    * with browser go http://localhost:8080/command/status
+*   check if server is start up
+    *   with browser go http://localhost:8080/command/status
 
 ## HTTP REST API
 ### Check Status
