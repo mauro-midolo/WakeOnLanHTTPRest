@@ -24,6 +24,7 @@ public class NetworkRepositoryImplTest {
     public void shouldExecuteWakeOnLan() {
         NetworkRepositoryImpl networkRepository = new NetworkRepositoryImpl();
         networkRepository.executeWOL("00-00-00-00-00-00","192.168.0.255");
+        Assert.assertNotNull(networkRepository);
     }
 
     @Test
