@@ -25,4 +25,13 @@ public class NetworkRepositoryImplTest {
         NetworkRepositoryImpl networkRepository = new NetworkRepositoryImpl();
         networkRepository.executeWOL("00-00-00-00-00-00","192.168.0.255");
     }
+
+    @Test
+    public void shouldExceptIfMacAddressIsWronge() {
+        NetworkRepositoryImpl networkRepository = new NetworkRepositoryImpl();
+        try {
+            networkRepository.executeWOL("-00","192.168.0.255");
+            Assert.fail();
+        }catch (Exception ignored){}
+    }
 }
