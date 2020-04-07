@@ -37,12 +37,7 @@ public class NetworkManager implements Manager {
             return;
         }
         List<String> broadCastIps = networkRepository.getBroadCastIps();
-        broadCastIps.forEach(broadCastIp -> {
-            try {
-                networkRepository.executeWOL(macAddress, broadCastIp);
-            } catch (IllegalArgumentException ignored) {
-            }
-        });
+        broadCastIps.forEach(broadCastIp -> networkRepository.executeWOL(macAddress, broadCastIp));
     }
 
     private boolean passwordIsNotValid(String password) {
