@@ -1,22 +1,20 @@
 package com.mauromidolo.windowsstartup.rest;
 
 import com.mauromidolo.windowsstartup.Manager;
-import org.jmock.Expectations;
-import org.jmock.auto.Mock;
-import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
 
-
+@RunWith(org.mockito.junit.MockitoJUnitRunner.class)
 public class HttpRestTest {
     private static final String PASSWORD = "PASSWORD";
-    @Rule
-    public final JUnitRuleMockery context = new JUnitRuleMockery();
+
     @Mock
     private Manager manager;
     private HttpRest httpRest;
@@ -36,12 +34,11 @@ public class HttpRestTest {
 
     @Test
     public void shouldProcessRequest() throws Exception {
-        context.checking(new Expectations() {{
-            oneOf(manager).sendWakeOnLanPackage(PASSWORD);
-        }});
         Response response = httpRest.startComputer(PASSWORD);
 
         assertEquals(200, response.getStatus());
         assertEquals("{\"Status\":\"OK\"}", response.getEntity());
+
+        Mockito.verify(manager).sendWakeOnLanPackage(PASSWORD);
     }
 }
