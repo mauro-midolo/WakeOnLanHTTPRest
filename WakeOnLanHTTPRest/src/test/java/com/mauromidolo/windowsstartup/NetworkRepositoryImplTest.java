@@ -35,4 +35,13 @@ public class NetworkRepositoryImplTest {
             Assert.fail();
         }catch (Exception ignored){}
     }
+
+    @Test
+    public void shouldExceptIfMacAddressIsNotNumber() {
+        NetworkRepositoryImpl networkRepository = new NetworkRepositoryImpl();
+        try {
+            networkRepository.executeWOL("00-0*-00-00-00-00","192.168.0.255");
+            Assert.fail();
+        }catch (Exception ignored){}
+    }
 }
