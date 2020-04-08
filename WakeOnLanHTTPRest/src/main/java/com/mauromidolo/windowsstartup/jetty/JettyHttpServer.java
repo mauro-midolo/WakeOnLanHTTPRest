@@ -57,6 +57,8 @@ public class JettyHttpServer implements WebServer {
 
     @Override
     public void destroy() {
-        jettyServer.destroy();
+        try {
+            jettyServer.stop();
+        } catch (Exception ignored) {}
     }
 }
