@@ -2,6 +2,10 @@ language: java
 os: linux
 dist: trusty
 
+addons:
+  sonarcloud:
+    organization: "mauro-midolo"
+
 before_install:
   - sudo apt-get -y install gpgv2 maven
   - sh .travis/init.sh
