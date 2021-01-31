@@ -14,7 +14,7 @@ jobs:
         - bash <(curl -s https://codecov.io/bash)
         - bash <(curl -Ls https://coverage.codacy.com/get.sh)
     - stage: SonarCloud
-      script: "mvn clean verify sonar:sonar -Dgpg.skip"
+      script: "mvn clean verify sonar:sonar -Dsonar.projectKey=WakeOnLanHTTPRest -Dgpg.skip"
     - stage: Deploy Snapshot
       script: "mvn clean deploy --settings .travis/settings.xml -f WakeOnLanHTTPRest -DskipTests,gpg.skip"
       after_success:
