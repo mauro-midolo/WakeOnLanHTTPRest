@@ -28,6 +28,8 @@ jobs:
         directory: ./WakeOnLanHTTPRest/
     - name: SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: WakeOnLanHTTPRest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
