@@ -27,6 +27,9 @@ jobs:
         directory: ./WakeOnLanHTTPRest/
     - name: Release Snapshot
       run: mvn clean deploy -f WakeOnLanHTTPRest -Dgpg.skip 
+      env:
+        MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
   Analyze_Code:
     name: Analyze Code
     runs-on: ubuntu-latest
