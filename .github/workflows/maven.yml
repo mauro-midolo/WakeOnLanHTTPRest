@@ -26,14 +26,9 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         directory: ./WakeOnLanHTTPRest/
-    - name: SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
-      with:
-        projectBaseDir: WakeOnLanHTTPRest
-        args: >
-          -Dsonar.organization=mauro-midolo
-          -Dsonar.projectKey=WakeOnLanHTTPRest
+    - name: Analyze
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -f WakeOnLanHTTPRest
 
