@@ -9,7 +9,7 @@ on:
   - cron: "0 * * * *"
 
 jobs:
-  Test e Deploy:
+  Test_and_Deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         directory: ./WakeOnLanHTTPRest/
-  Analyze Code:
+  Analyze_Code:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
