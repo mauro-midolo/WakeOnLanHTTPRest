@@ -26,4 +26,9 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         directory: ./WakeOnLanHTTPRest/
+    - name: SonarCloud
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
