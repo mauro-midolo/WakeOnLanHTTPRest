@@ -1,4 +1,4 @@
-name: ProjectAction
+name: Build
 
 on:
   push:
