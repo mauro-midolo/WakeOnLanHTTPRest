@@ -10,6 +10,7 @@ on:
 
 jobs:
   Test_and_Deploy:
+    name: Test and Deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,6 +26,7 @@ jobs:
       with:
         directory: ./WakeOnLanHTTPRest/
   Analyze_Code:
+    name: Analyze Code
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +41,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -f WakeOnLanHTTPRest -Dgpg.skip
   github_security_analyze:
-      name: Analyze
+      name: GitHub Secuity Analyze
       runs-on: ubuntu-latest
       permissions:
         actions: read
