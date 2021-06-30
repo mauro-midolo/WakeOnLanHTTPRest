@@ -22,7 +22,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: mvn -B package --file WakeOnLanHTTPRest/pom.xml
+      run: mvn clean test -f WakeOnLanHTTPRest -Dgpg.skip
     - name: Push Coverage
       uses: codecov/codecov-action@v1
       with:
