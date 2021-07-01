@@ -18,7 +18,6 @@ public class NetworkRepositoryImpl implements NetworkRepository {
             socket = new DatagramSocket();
             socket.send(packet);
         } catch (IOException e) {
-            e.printStackTrace();
         } finally {
             if (socket != null) {
                 socket.close();
