@@ -2,6 +2,9 @@
 
 JAR_ABSOLUTE_PATH=/opt/wol/WakeOnLanHTTPRest.jar
 
+echo "Stopping Service..."
+sudo service wol stop
+
 echo "Cleaning space..."
 sudo rm -f "$JAR_ABSOLUTE_PATH"
 echo "Downloading latest verion..."
