@@ -41,3 +41,10 @@ Available on: GET /command/start/{passoword}/{mac-address}
 
 For security reasons, it returns always a json value as follow:
 _{"Status":"OK"}_
+
+## Support the project with a donation
+This project is open source and free, but if you want to support us and help us continue to maintain and improve it, you can make a donation through PayPal. 
+Any contribution, no matter how small, is greatly appreciated and will help us keep the project active and healthy. Thank you for your support!
+
+[![Donate](https://img.shields.io/static/v1?label=PayPal&message=Buy%20Me%20a%20Coffee&color=green&logo=PayPal)](https://paypal.me/mauromi?country.x=IT&locale.x=it_IT)
+
