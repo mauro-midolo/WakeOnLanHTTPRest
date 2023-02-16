@@ -9,9 +9,7 @@ public class ApplicationFileProperties implements ApplicationProperties {
 
     public ApplicationFileProperties(String path) {
         properties = new Properties();
-        FileInputStream file;
-        try {
-            file = new FileInputStream(path);
+        try(FileInputStream file = new FileInputStream(path)) {
             properties.load(file);
             file.close();
         } catch (java.io.IOException e) {
