@@ -18,7 +18,7 @@
         <sonar.projectKey>mauro-midolo_WakeOnLanHTTPRest</sonar.projectKey>
         <sonar.organization>mauro-midolo</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <build>
