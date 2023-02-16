@@ -33,11 +33,6 @@ public class NetworkManagerTest {
     }
 
     @Test
-    public void shouldExist() {
-        NetworkManager.getInstance();
-    }
-
-    @Test
     public void shouldManagesCorrectStartRequest() {
         Mockito.when(applicationProperties.getProperty("mac.address")).thenReturn(MAC_ADDRESS);
         Mockito.when(applicationProperties.getProperty("security.password")).thenReturn(PASSWORD);

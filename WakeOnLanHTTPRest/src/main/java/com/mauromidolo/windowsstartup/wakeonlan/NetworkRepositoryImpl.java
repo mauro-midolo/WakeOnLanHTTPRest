@@ -2,7 +2,6 @@ package com.mauromidolo.windowsstartup.wakeonlan;
 
 import java.io.IOException;
 import java.net.*;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,7 +39,6 @@ public class NetworkRepositoryImpl implements NetworkRepository {
                     }).flatMap(networkInterface -> networkInterface.getInterfaceAddresses().stream())
                     .filter(interfaceAddress -> interfaceAddress.getBroadcast() != null)
                     .map(interfaceAddress -> interfaceAddress.getBroadcast().getHostAddress()).collect(Collectors.toList());
-
         } catch (SocketException e) {
             return List.of();
         }

@@ -11,9 +11,8 @@ public class ApplicationFileProperties implements ApplicationProperties {
         properties = new Properties();
         try(FileInputStream file = new FileInputStream(path)) {
             properties.load(file);
-            file.close();
         } catch (java.io.IOException e) {
-            System.out.println("Impossible to read server.properties file");
+            System.err.println("Impossible to read server.properties file");
         }
     }
 
