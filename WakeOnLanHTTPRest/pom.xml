@@ -35,25 +35,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
@@ -72,25 +53,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/resources/properties/</directory>
-                <includes>
-                    <include>*.properties</include>
-                </includes>
-                <targetPath>../</targetPath>
-            </resource>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/resources/startService/</directory>
-                <includes>
-                    <include>startService.sh</include>
-                </includes>
-                <targetPath>../</targetPath>
-            </resource>
-        </resources>
     </build>
 
     <dependencies>
