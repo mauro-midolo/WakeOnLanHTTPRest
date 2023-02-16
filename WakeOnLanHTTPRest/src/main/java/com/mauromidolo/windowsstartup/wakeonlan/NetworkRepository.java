@@ -1,4 +1,4 @@
-package com.mauromidolo.windowsstartup;
+package com.mauromidolo.windowsstartup.wakeonlan;
 
 import java.util.List;
 

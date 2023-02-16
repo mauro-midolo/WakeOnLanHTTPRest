@@ -1,7 +1,7 @@
 package com.mauromidolo.windowsstartup.rest;
 
-import com.mauromidolo.windowsstartup.Manager;
-import com.mauromidolo.windowsstartup.NetworkManager;
+import com.mauromidolo.windowsstartup.wakeonlan.Manager;
+import com.mauromidolo.windowsstartup.wakeonlan.NetworkManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;

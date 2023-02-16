@@ -1,5 +1,6 @@
 package com.mauromidolo.windowsstartup;
 
+import com.mauromidolo.windowsstartup.wakeonlan.NetworkRepositoryImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

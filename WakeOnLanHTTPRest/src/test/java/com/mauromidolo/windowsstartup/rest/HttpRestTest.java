@@ -1,7 +1,7 @@
 package com.mauromidolo.windowsstartup.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mauromidolo.windowsstartup.Manager;
+import com.mauromidolo.windowsstartup.wakeonlan.Manager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

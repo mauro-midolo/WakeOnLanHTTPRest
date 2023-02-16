@@ -1,4 +1,4 @@
-package com.mauromidolo.windowsstartup;
+package com.mauromidolo.windowsstartup.wakeonlan;
 
 import com.mauromidolo.windowsstartup.properties.ApplicationFileProperties;
 import com.mauromidolo.windowsstartup.properties.ApplicationProperties;
@@ -17,7 +17,7 @@ public class NetworkManager implements Manager {
         return instance;
     }
 
-    NetworkManager(NetworkRepository networkRepository, ApplicationProperties applicationProperties) {
+    public NetworkManager(NetworkRepository networkRepository, ApplicationProperties applicationProperties) {
         this.networkRepository = networkRepository;
         this.applicationProperties = applicationProperties;
     }

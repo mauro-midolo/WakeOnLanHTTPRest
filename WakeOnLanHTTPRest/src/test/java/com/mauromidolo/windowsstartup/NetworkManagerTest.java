@@ -1,6 +1,9 @@
 package com.mauromidolo.windowsstartup;
 
 import com.mauromidolo.windowsstartup.properties.ApplicationProperties;
+import com.mauromidolo.windowsstartup.wakeonlan.Manager;
+import com.mauromidolo.windowsstartup.wakeonlan.NetworkManager;
+import com.mauromidolo.windowsstartup.wakeonlan.NetworkRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,8 @@
-package com.mauromidolo.windowsstartup;
+package com.mauromidolo.windowsstartup.wakeonlan;
 
 import java.io.IOException;
 import java.net.*;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ public class NetworkRepositoryImpl implements NetworkRepository {
             DatagramPacket packet = new DatagramPacket(macBytes, macBytes.length, address, 9);
             socket = new DatagramSocket();
             socket.send(packet);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         } finally {
             if (socket != null) {
                 socket.close();
@@ -41,7 +42,7 @@ public class NetworkRepositoryImpl implements NetworkRepository {
                     .map(interfaceAddress -> interfaceAddress.getBroadcast().getHostAddress()).collect(Collectors.toList());
 
         } catch (SocketException e) {
-            return null;
+            return List.of();
         }
     }
 
@@ -59,7 +60,7 @@ public class NetworkRepositoryImpl implements NetworkRepository {
 
     private byte[] getMacBytes(String macStr) throws IllegalArgumentException {
         byte[] bytes = new byte[6];
-        String[] hex = macStr.split("(\\:|\\-)");
+        String[] hex = macStr.split("([:\\-])");
         if (hex.length != 6) {
             throw new IllegalArgumentException("Invalid MAC address.");
         }
