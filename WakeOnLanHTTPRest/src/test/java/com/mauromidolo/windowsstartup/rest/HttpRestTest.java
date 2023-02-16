@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.http.ResponseEntity;
 
-import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,18 +28,18 @@ public class HttpRestTest {
 
     @Test
     public void shouldReturnSuccessResponse() throws Exception {
-        Response response = httpRest.checkServer();
+        ResponseEntity<Object> response = httpRest.checkServer();
 
-        assertEquals(200, response.getStatus());
-        assertEquals("{\"Status\":\"OK\"}", response.getEntity());
+        assertEquals(200, response.getStatusCode().value());
+        assertEquals("{\"Status\":\"OK\"}", response.getBody());
     }
 
     @Test
     public void shouldProcessRequest() throws Exception {
-        Response response = httpRest.startComputer(PASSWORD);
+        ResponseEntity<Object> response = httpRest.startComputer(PASSWORD);
 
-        assertEquals(200, response.getStatus());
-        assertEquals("{\"Status\":\"OK\"}", response.getEntity());
+        assertEquals(200, response.getStatusCode().value());
+        assertEquals("{\"Status\":\"OK\"}", response.getBody());
 
         Mockito.verify(manager).sendWakeOnLanPackage(PASSWORD);
     }
@@ -59,8 +59,8 @@ public class HttpRestTest {
 
     @Test
     public void shouldStartComputerWithPasswordAndMac() throws JsonProcessingException {
-        Response response = httpRest.startComputer(PASSWORD, "00:00:00:00:00");
-        assertEquals(200, response.getStatus());
-        assertEquals("{\"Status\":\"OK\"}", response.getEntity());
+        ResponseEntity<Object> response = httpRest.startComputer(PASSWORD, "00:00:00:00:00");
+        assertEquals(200, response.getStatusCode().value());
+        assertEquals("{\"Status\":\"OK\"}", response.getBody());
     }
 }

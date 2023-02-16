@@ -4,17 +4,19 @@ import com.mauromidolo.windowsstartup.Manager;
 import com.mauromidolo.windowsstartup.NetworkManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/command")
+@RestController
+@RequestMapping("/command")
 public class HttpRest {
 
     private Manager networkManager;
@@ -30,27 +32,23 @@ public class HttpRest {
         networkManager = NetworkManager.getInstance();
     }
 
-    @GET
-    @Path("/start/{password}")
-    @Produces("application/json")
-    public Response startComputer(@PathParam("password") String password) throws JsonProcessingException {
+
+    @GetMapping("/start/{password}")
+    public ResponseEntity<Object> startComputer(@PathVariable("password") String password) throws JsonProcessingException {
         networkManager.sendWakeOnLanPackage(password);
-        return Response.status(200).entity(generateSuccessResponse()).build();
+        return ResponseEntity.status(HttpStatus.OK).body(generateSuccessResponse());
     }
 
-    @GET
-    @Path("/start/{password}/{macAddress}")
-    @Produces("application/json")
-    public Response startComputer(@PathParam("password") String password, @PathParam("macAddress") String macAddress) throws JsonProcessingException {
+    @GetMapping("/start/{password}/{macAddress}")
+    public ResponseEntity<Object> startComputer(@PathVariable("password") String password, @PathVariable("macAddress") String macAddress) throws JsonProcessingException {
         networkManager.sendWakeOnLanPackage(password, macAddress);
-        return Response.status(200).entity(generateSuccessResponse()).build();
+        return ResponseEntity.status(HttpStatus.OK).body(generateSuccessResponse());
     }
 
-    @GET
-    @Path("/status")
-    @Produces("application/json")
-    public Response checkServer() throws JsonProcessingException {
-        return Response.status(200).entity(generateSuccessResponse()).build();
+
+    @GetMapping("/status")
+    public ResponseEntity<Object> checkServer() throws JsonProcessingException {
+        return ResponseEntity.status(HttpStatus.OK).body(generateSuccessResponse());
     }
 
     private String generateSuccessResponse() throws JsonProcessingException {
